@@ -1,0 +1,349 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body, html {
+  height: 100%;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: black;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Luna blanca en el tope */
+.moon {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 80px;
+  background: radial-gradient(circle at 30% 30%, #fff, #ccc);
+  border-radius: 50%;
+  box-shadow:
+    10px 10px 15px rgba(255, 255, 255, 0.4),
+    inset 5px 5px 8px #eee,
+    inset -5px -5px 8px #bbb;
+  z-index: 10;
+}
+
+/* Nubes blancas sólidas y animadas */
+.cloud {
+  position: absolute;
+  background: white;
+  border-radius: 50%;
+  opacity: 1;
+  z-index: 0;
+  filter: drop-shadow(0 0 5px rgba(255,255,255,0.3));
+}
+
+.cloud::before,
+.cloud::after {
+  content: '';
+  position: absolute;
+  background: white;
+  border-radius: 50%;
+}
+
+.cloud1, .cloud2, .cloud3, .cloud4, .cloud5 {
+  width: 120px;
+  height: 60px;
+}
+
+.cloud1 {
+  top: 10%;
+  left: -150px;
+  animation: cloudMoveRight 60s linear infinite;
+}
+.cloud2 {
+  top: 30%;
+  left: 100%;
+  animation: cloudMoveLeft 60s linear infinite;
+}
+.cloud3 {
+  top: 50%;
+  left: -200px;
+  animation: cloudMoveRight 60s linear infinite;
+}
+.cloud4 {
+  top: 70%;
+  left: 100%;
+  animation: cloudMoveLeft 60s linear infinite;
+}
+.cloud5 {
+  top: 85%;
+  left: -150px;
+  animation: cloudMoveRight 60s linear infinite;
+}
+
+.cloud1::before, .cloud2::before, .cloud3::before, .cloud4::before, .cloud5::before {
+  width: 80px;
+  height: 80px;
+  left: 20px;
+  top: -30px;
+}
+.cloud1::after, .cloud2::after, .cloud3::after, .cloud4::after, .cloud5::after {
+  width: 100px;
+  height: 100px;
+  left: 60px;
+  top: -50px;
+}
+
+@keyframes cloudMoveRight {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(140vw); }
+}
+
+@keyframes cloudMoveLeft {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-140vw); }
+}
+
+.login-section {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  position: relative;
+  z-index: 1;
+}
+
+.login-container {
+  width: 100%;
+  max-width: 1000px;
+  background: white;
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  z-index: 2;
+}
+
+/* Efecto acelerador de partículas */
+.login-container::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 1rem;
+  padding: 4px;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 255, 255, 0.1),
+    rgba(0, 255, 255, 0.6),
+    rgba(255, 255, 255, 0.9),
+    rgba(0, 255, 255, 0.6),
+    rgba(0, 255, 255, 0.1)
+  );
+  background-size: 400% 100%;
+  animation: particleStreamLight 2s linear infinite;
+  z-index: -1;
+  mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  -webkit-mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  -webkit-mask-composite: destination-out;
+}
+
+@keyframes particleStreamLight {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+.login-card {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+@media(min-width: 768px) {
+  .login-card {
+    flex-direction: row;
+  }
+}
+
+.login-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.login-image {
+  flex: 1;
+  display: none;
+}
+
+@media(min-width: 768px) {
+  .login-image {
+    display: block;
+  }
+}
+
+.login-form {
+  flex: 1;
+  padding: 2rem;
+  background-color: white;
+  position: relative;
+}
+
+/* Logo con icono redondo y separación */
+.logo {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  gap: 1rem;
+}
+
+.logo-icon img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.logo-text {
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+h2 {
+  margin-bottom: 1rem;
+  color: #333;
+  letter-spacing: 1px;
+}
+
+.form-group {
+  margin-bottom: 1.2rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.4rem;
+  font-weight: 600;
+  color: #444;
+}
+
+input {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+}
+
+.btn {
+  width: 100%;
+  padding: 0.9rem;
+  background-color: #333;
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 1rem;
+  transition: background-color 0.3s;
+}
+
+.btn:hover {
+  background-color: #555;
+}
+
+.links {
+  margin-top: 1.5rem;
+  font-size: 0.9rem;
+  color: #666;
+  text-align: center;
+}
+
+.links a {
+  color: #393f81;
+  text-decoration: none;
+  margin: 0 0.3rem;
+}
+
+.links a:hover {
+  text-decoration: underline;
+}
+
+/* Íconos sociales en la esquina superior derecha dentro del formulario */
+.social-icons {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  display: flex;
+  gap: 0.8rem;
+  z-index: 5;
+}
+
+.social-icon img {
+  width: 28px;
+  height: 28px;
+  cursor: pointer;
+  filter: grayscale(100%);
+  transition: filter 0.3s ease;
+  border-radius: 50%;
+  background: white;
+  padding: 4px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.2);
+}
+
+.social-icon img:hover {
+  filter: grayscale(0%);
+  box-shadow: 0 0 8px rgba(0,0,0,0.4);
+}
+
+
+
+
+
+/* Modal (fondo y posicionamiento) */
+.modal {
+  display: none; /* oculto por defecto */
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Contenido del modal */
+.modal-content {
+  background-color: #222;
+  color: white;
+  padding: 20px 30px;
+  border-radius: 12px;
+  max-width: 400px;
+  margin: auto;
+  text-align: center;
+  box-shadow: 0 0 15px red;
+  font-size: 1.2rem;
+}
+
+/* Botón cerrar */
+.close-btn {
+  color: white;
+  float: right;
+  font-size: 1.5rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+.close-btn:hover {
+  color: red;
+}
