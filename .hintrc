@@ -45,7 +45,8 @@
       {
         "nested-interactive": "off"
       }
-    ]
+    ],
+    "meta-viewport": "off"
   },
   "browserslist": [
     "defaults",
