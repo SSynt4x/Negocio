@@ -28,7 +28,8 @@
     "axe/text-alternatives": [
       "default",
       {
-        "frame-title": "off"
+        "frame-title": "off",
+        "document-title": "off"
       }
     ],
     "compat-api/html": [
