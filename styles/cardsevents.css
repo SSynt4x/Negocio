@@ -1,0 +1,16 @@
+/* Estilos por filtro de color para imágenes externas */
+.icon-green {
+  filter: invert(53%) sepia(93%) saturate(381%) hue-rotate(111deg) brightness(92%) contrast(91%);
+}
+
+.icon-blue {
+  filter: invert(31%) sepia(94%) saturate(2786%) hue-rotate(192deg) brightness(93%) contrast(101%);
+}
+
+.icon-orange {
+  filter: invert(66%) sepia(80%) saturate(609%) hue-rotate(353deg) brightness(104%) contrast(101%);
+}
+
+.icon-red {
+  filter: invert(39%) sepia(89%) saturate(1594%) hue-rotate(337deg) brightness(90%) contrast(103%);
+}
